@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <title>Weather</title>
+</head>
+
+<body>
+  <div class="weather">
+    <form class="weather__search" onsubmit="return false">
+      <input type="text" class="search__input" placeholder="Samara">
+      <input type="submit" class="search__btn" value="">
+    </form>
+    <div class="container">
+      <div class="current-weather">
+        <div class="current-weather__now tabs__block" id="tab_1">
+          <p class="now__temperature tab">14°</p>
+          <img class="now__img_cloud" src="./images/cloud.svg" alt="cloud">
+          <div class="now-wrapper">
+            <p class="now__city city-name">Samara</p>
+            <button class="now__btn_heart"></button>
+          </div>
+        </div>
+        <div class="current-weather__details tabs__block" id="tab_2">
+          <p class="details__city city-name">Samara</p>
+          <ul class="details__list">
+            <li class="details__item">Temperature: 14°</li>
+            <li class="details__item">Feels like: 10°</li>
+            <li class="details__item">Weather: Clouds</li>
+            <li class="details__item">Sunrise: 03:21</li>
+            <li class="details__item">Sunset: 18:54</li>
+          </ul>
+        </div>
+        <div class="current-weather__forecast tabs__block" id="tab_3">
+          <p class="forecast__city city-name">Samara</p>
+          <div class="forecast__weather-timetable">
+            <div class="forecast__weather-item">
+              <p class="weather-timetable__date">17 May</p>
+              <p class="weather-timetable__time">12:00</p>
+              <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
+              <div class="wearher-timetable__precipitation">
+                <p class="precipitation__title">Rain</p>
+                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+              </div>
+            </div>
+            <div class="forecast__weather-item">
+              <p class="weather-timetable__date">17 May</p>
+              <p class="weather-timetable__time">12:00</p>
+              <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
+              <div class="wearher-timetable__precipitation">
+                <p class="precipitation__title">Rain</p>
+                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+              </div>
+            </div>
+            <div class="forecast__weather-item">
+              <p class="weather-timetable__date">17 May</p>
+              <p class="weather-timetable__time">12:00</p>
+              <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
+              <div class="wearher-timetable__precipitation">
+                <p class="precipitation__title">Rain</p>
+                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabs">
+          <ul class="tabs__list">
+            <li class="tabs__item"><button class="tabs__item-btn" type="button" data-tab="#tab_1">Now</button></li>
+            <li class="tabs__item"><button class="tabs__item-btn" type="button" data-tab="#tab_2">Details</button></li>
+            <li class="tabs__item"><button class="tabs__item-btn" type="button" data-tab="#tab_3">Forecast</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="locations">
+        <div class="locations__header">
+          <p class="locations__title">Added locations:</p>
+        </div>
+        <div class="locations__cities">
+          <ul class="cities__list">
+            <li class="cities__item">Samara</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

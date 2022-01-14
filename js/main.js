@@ -1,6 +1,6 @@
 import {UI, WEATHER} from './view.js'
 import {render} from './render.js'
-
+import {storage} from './storage.js'
 UI.TABS_BTN.forEach(onTabClick)
 
 function onTabClick(currentBtn) {
@@ -58,7 +58,9 @@ function addFavoriteCity() {
   }
   const deleteBtns = document.querySelectorAll('.cities__delete-btn')
   deleteBtns.forEach((btn) => btn.addEventListener('click', deleteCity))
-  function deleteCity() {
-    this.parentElement.remove()
-  }
+  
+}
+
+function deleteCity() {
+  this.parentElement.remove()
 }

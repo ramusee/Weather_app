@@ -92,9 +92,10 @@ li {
   margin: 20px auto;
 }
 .now-wrapper {
-  margin-top: auto;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  min-height: 70px;
 }
 .now__btn_heart {
   background: none;

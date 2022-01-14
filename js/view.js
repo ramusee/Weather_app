@@ -9,6 +9,7 @@ export const UI = {
   LOCATIONS_LIST: document.querySelector('.cities__list'),
   ADDED_CITIES: document.querySelectorAll('.added-city'),
   NOW_CITY: document.querySelector('.now__city'),
+
 }
 export const WEATHER = {
   TEMPERATURE: document.querySelector('.now__temperature'),
@@ -19,5 +20,9 @@ export const WEATHER = {
     WEATHER: document.querySelector('.details__item.details-weather'),
     SUNRISE: document.querySelector('.details__item.sunrise'),
     SUNSET: document.querySelector('.details__item.sunset'),
+  },
+  FORECAST: {
+    LIST: document.querySelector('.forecast__weather-timetable'),
+    ITEM: document.querySelectorAll('.forecast__weather-item')
   },
 }

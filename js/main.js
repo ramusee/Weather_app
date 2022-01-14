@@ -1,6 +1,6 @@
-import {UI, WEATHER} from './view.js'
-import {render} from './render.js'
-import {storage} from './storage.js'
+import { UI, WEATHER } from './view.js'
+import { render } from './render.js'
+import { storage } from './storage.js'
 UI.TABS_BTN.forEach(onTabClick)
 
 function onTabClick(currentBtn) {
@@ -18,9 +18,9 @@ function onTabClick(currentBtn) {
 }
 document.querySelector('.tabs__item-btn').click()
 
-UI.SEARCH_BTN.addEventListener('click', changeCityName)
+UI.SEARCH_BTN.addEventListener('click', searchCityName)
 
-function changeCityName() {
+function searchCityName() {
   if (UI.SEARCH_INPUT.value.trim() !== '') {
     const cityName = UI.SEARCH_INPUT.value.trim()
     const serverUrl = 'https://api.openweathermap.org/data/2.5/weather'
@@ -35,7 +35,7 @@ function changeCityName() {
           throw new Error(data.message)
         } else {
           render(data, urlIcon)
-          }
+        }
       })
       .catch((error) => {
         alert(`Oops: ${error.message}`)
@@ -55,12 +55,21 @@ function addFavoriteCity() {
       'afterbegin',
       `<div class="cities__item"><p class="added-city">${UI.NOW_CITY.textContent}</p><button class="cities__delete-btn" type="button"></button></div>`
     )
+    storage.saveFavoriteCities(UI.NOW_CITY.textContent)
   }
+  const ADDED_CITIES = document.querySelectorAll('.added-city')
   const deleteBtns = document.querySelectorAll('.cities__delete-btn')
   deleteBtns.forEach((btn) => btn.addEventListener('click', deleteCity))
-  
+  tapToFavoriteCity(ADDED_CITIES)
 }
-
+function tapToFavoriteCity(ADDED_CITIES) {
+  ADDED_CITIES.forEach((city) =>
+    city.addEventListener('click', () => {
+      UI.SEARCH_INPUT.value = city.textContent
+      UI.SEARCH_BTN.click()
+    })
+  )
+}
 function deleteCity() {
   this.parentElement.remove()
 }

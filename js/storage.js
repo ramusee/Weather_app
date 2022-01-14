@@ -1,6 +1,6 @@
 export const storage = {
-saveFavoriteCities(citiesName) {
- return localStorage.setItem('citiesName', JSON.stringify(citiesName))
+saveFavoriteCities(cities) {
+ return localStorage.setItem('cityName', JSON.stringify(cities))
 },
 getFavoriteCities(){
   return JSON.parse(localStorage.getItem('cityName'))

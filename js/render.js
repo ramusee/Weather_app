@@ -1,7 +1,6 @@
 import {UI, WEATHER} from './view.js'
 export function render(data, urlIcon) {
-  UI.CITY_NAME.forEach((item) => {item.textContent = data.name })
-  console.log(data)
+  UI.CITY_NAME.forEach((item) => { item.textContent = data.name })
   WEATHER.TEMPERATURE.textContent =  `${Math.round(data.main.temp)}°`
   WEATHER.ICON.src = `${urlIcon}${data.weather[0].icon}@2x.png`
   WEATHER.DETAILS.TEMPERATURE.textContent = `Temperature: ${Math.round(data.main.temp)}°`

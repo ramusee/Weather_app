@@ -25,6 +25,7 @@ li {
   margin: 0 auto;
   margin-top: 50px;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 /* SEARCH */
@@ -65,13 +66,15 @@ li {
 /* TABS BLOCK */
 
 .current-weather {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid black;
   border-top: none;
   font-size: 24px;
   width: 50%;
+  position: relative;
+  box-sizing: border-box;
 }
 
 /* WEATHER NOW */
@@ -83,12 +86,13 @@ li {
 .now__temperature {
   font-size: 70px;
 }
-.now__img_cloud {
+.now__img {
   display: block;
-  margin: 50px auto;
+  width: 120px;
+  margin: 20px auto;
 }
 .now-wrapper {
-  margin-top: 95px;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
 }
@@ -102,9 +106,12 @@ li {
   padding: 15px 15px;
   transition: 0.2s ease-out;
 }
-.now__btn_heart:hover {
+/* .now__btn_heart:hover {
   background-image: url(../images/heart-red.svg);
 }
+.now__btn_heart:active {
+  background-image: url(../images/heart-active.svg);
+} */
 .now__btn_active {
   background-image: url(../images/heart-active.svg);
 }
@@ -166,9 +173,13 @@ li {
 /* TABS */
 
 .tabs {
+  position: absolute;
   border-top: 1px solid black;
   font-size: 18px;
   padding: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tabs__list {
@@ -179,6 +190,7 @@ li {
   display: flex;
   justify-content: center;
   border-right: 1px solid black;
+  padding: 0;
 }
 .tabs__item:last-child {
   border: none;
@@ -232,4 +244,16 @@ li {
 }
 .cities__item {
   margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.cities__delete-btn {
+  background: none;
+  border: none;
+  background-image: url(../images/delete.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 12px;
+  margin-right: 10px;
+  cursor: pointer;
 }

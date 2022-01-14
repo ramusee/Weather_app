@@ -1,4 +1,5 @@
-import { UI } from './view.js'
+import {UI, WEATHER} from './view.js'
+import {render} from './render.js'
 
 UI.TABS_BTN.forEach(onTabClick)
 
@@ -22,34 +23,42 @@ UI.SEARCH_BTN.addEventListener('click', changeCityName)
 function changeCityName() {
   if (UI.SEARCH_INPUT.value.trim() !== '') {
     const cityName = UI.SEARCH_INPUT.value.trim()
-    UI.HEART.classList.remove('now__btn_active')
-    const serverUrl = 'http://api.openweathermap.org/data/2.5/weather'
+    const serverUrl = 'https://api.openweathermap.org/data/2.5/weather'
     const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f'
     const metric = '&units=metric'
-    const url = `${serverUrl}?q=${cityName}&appid=${apiKey}${metric}`
-    fetch(url)
+    const urlWeather = `${serverUrl}?q=${cityName}&appid=${apiKey}${metric}`
+    const urlIcon = 'http://openweathermap.org/img/wn/'
+    fetch(urlWeather)
       .then((response) => response.json())
       .then((data) => {
         if (!data.name) {
           throw new Error(data.message)
         } else {
-          UI.CITY_NAME.forEach((item) => {
-            item.textContent = data.name
-          })
-        }
+          render(data, urlIcon)
+          }
       })
-      .catch((error) => alert(`Oops: ${error.message}`))
+      .catch((error) => {
+        alert(`Oops: ${error.message}`)
+      })
+    UI.FORM.reset()
   }
-  UI.FORM.reset()
 }
-
 UI.HEART.addEventListener('click', addFavoriteCity)
 
 function addFavoriteCity() {
-  UI.HEART.classList.toggle('now__btn_active')
-  const favoriteCity = document.querySelector('.now__city')
-  UI.SELECTED_CITY.forEach((item) => {
-    // if()
-    item.textContent = favoriteCity.textContent
-  })
+  if (
+    UI.NOW_CITY.textContent !== 'Location' &&
+    !UI.HEART.classList.contains('now__btn_active')
+  ) {
+    UI.HEART.classList.add('now__btn_active')
+    UI.LOCATIONS_LIST.insertAdjacentHTML(
+      'afterbegin',
+      `<div class="cities__item"><p class="added-city">${UI.NOW_CITY.textContent}</p><button class="cities__delete-btn" type="button"></button></div>`
+    )
+  }
+  const deleteBtns = document.querySelectorAll('.cities__delete-btn')
+  deleteBtns.forEach((btn) => btn.addEventListener('click', deleteCity))
+  function deleteCity() {
+    this.parentElement.remove()
+  }
 }

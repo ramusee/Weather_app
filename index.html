@@ -14,31 +14,31 @@
 <body>
   <div class="weather">
     <form class="weather__search" onsubmit="return false">
-      <input type="text" class="search__input" placeholder="Samara">
+      <input type="text" class="search__input" placeholder="Locations">
       <input type="submit" class="search__btn" value="">
     </form>
     <div class="container">
       <div class="current-weather">
-        <div class="current-weather__now tabs__block" id="tab_1">
-          <p class="now__temperature tab">14°</p>
-          <img class="now__img_cloud" src="./images/cloud.svg" alt="cloud">
+        <div class="tabs__block current-weather__now " id="tab_1">
+          <p class="now__temperature tab">10°</p>
+          <img class="now__img" src="http://openweathermap.org/img/wn/10d@2x.png" alt="cloud">
           <div class="now-wrapper">
-            <p class="now__city city-name">Samara</p>
+            <p class="now__city city-name">Location</p>
             <button class="now__btn_heart"></button>
           </div>
         </div>
-        <div class="current-weather__details tabs__block" id="tab_2">
-          <p class="details__city city-name">Samara</p>
+        <div class="tabs__block current-weather__details" id="tab_2">
+          <p class="details__city city-name">Location</p>
           <ul class="details__list">
-            <li class="details__item">Temperature: 14°</li>
-            <li class="details__item">Feels like: 10°</li>
-            <li class="details__item">Weather: Clouds</li>
-            <li class="details__item">Sunrise: 03:21</li>
-            <li class="details__item">Sunset: 18:54</li>
+            <li class="details__item temp">Temperature: 14°</li>
+            <li class="details__item feels-like">Feels like: 10°</li>
+            <li class="details__item details-weather">Weather: Clouds</li>
+            <li class="details__item sunrise">Sunrise: 03:21</li>
+            <li class="details__item sunset">Sunset: 18:54</li>
           </ul>
         </div>
         <div class="current-weather__forecast tabs__block" id="tab_3">
-          <p class="forecast__city city-name">Samara</p>
+          <p class="forecast__city city-name">Location</p>
           <div class="forecast__weather-timetable">
             <div class="forecast__weather-item">
               <p class="weather-timetable__date">17 May</p>
@@ -46,7 +46,7 @@
               <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
               <div class="wearher-timetable__precipitation">
                 <p class="precipitation__title">Rain</p>
-                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+                <img class="precipitation__img" src="./images/weather/rain.svg" alt="rain">
               </div>
             </div>
             <div class="forecast__weather-item">
@@ -55,7 +55,7 @@
               <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
               <div class="wearher-timetable__precipitation">
                 <p class="precipitation__title">Rain</p>
-                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+                <img class="precipitation__img" src="./images/weather/rain.svg" alt="rain">
               </div>
             </div>
             <div class="forecast__weather-item">
@@ -64,7 +64,7 @@
               <p class="weather-timetable__temp">Temperature: 13°<br>Feels like: 10°</p>
               <div class="wearher-timetable__precipitation">
                 <p class="precipitation__title">Rain</p>
-                <img class="precipitation__img" src="./images/rain.svg" alt="rain">
+                <img class="precipitation__img" src="./images/weather/rain.svg" alt="rain">
               </div>
             </div>
           </div>
@@ -82,10 +82,8 @@
           <p class="locations__title">Added locations:</p>
         </div>
         <div class="locations__cities">
-          <ul class="cities__list">
-            <li class="cities__item">Samara</li>
-
-          </ul>
+          <div class="cities__list">
+          </div>
         </div>
       </div>
     </div>

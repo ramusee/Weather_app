@@ -5,10 +5,10 @@ saveFavoriteCities(cities) {
 getFavoriteCities(){
   return JSON.parse(localStorage.getItem('cityName'))
 },
-saveCurrentCities(currentCity) {
+saveCurrentCity(currentCity) {
   return localStorage.setItem('currentCity', JSON.stringify(currentCity))
 },
-getCurrentCities() {
+getCurrentCity() {
   return JSON.parse(localStorage.getItem('currentCity'))
 }
 }

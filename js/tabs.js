@@ -1,4 +1,4 @@
-import {UI, WEATHER} from './view.js'
+import {UI} from './view.js'
 
 export function onTabClick(currentBtn) {
   currentBtn.addEventListener('click', changeTab)

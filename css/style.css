@@ -148,9 +148,7 @@ li {
   overflow: auto;
   padding-right: 10px;
 }
-.forecast__weather-timetable::-webkit-scrollbar {
-  display:none;
-}
+
 .forecast__weather-item {
   display: flex;
   flex-wrap: wrap;
@@ -169,10 +167,15 @@ li {
   line-height: 1.4em;
 }
 .wearher-timetable__precipitation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 18px;
 }
 .precipitation__img {
-  padding-left: 3px;
+  margin: -15px;
+  width: 60px;
 }
 
 /* TABS */

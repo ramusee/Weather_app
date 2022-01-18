@@ -252,6 +252,7 @@ li {
 .cities__list {
   overflow: auto;
   height: 300px;
+  margin-left: 10px;
   margin-top: 10px;
 }
 .cities__list::-webkit-scrollbar {

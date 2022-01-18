@@ -1,5 +1,5 @@
 import {UI, WEATHER} from './view.js'
-import { timeConverter, dateConverter } from './main.js'
+import { dateConverter, timeConverter } from './converters.js'
 export function render(data, URL_ICON) {
   UI.CITY_NAME.forEach((item) => { item.textContent = data.name })
   WEATHER.TEMPERATURE.textContent =  `${Math.round(data.main.temp)}°`

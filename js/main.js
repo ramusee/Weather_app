@@ -10,7 +10,7 @@ const URL_ICON = 'http://openweathermap.org/img/wn/'
 const URL_FORECAST = 'https://api.openweathermap.org/data/2.5/forecast'
 
 UI.TABS_BTN.forEach(onTabClick)
-document.querySelectorAll('.tabs__item-btn')[2].click()
+document.querySelector('.tabs__item-btn').click()
 
 UI.SEARCH_BTN.addEventListener('click', searchCityName)
 

@@ -1,14 +1,15 @@
 export const storage = {
 saveFavoriteCities(cities) {
- return localStorage.setItem('cityName', JSON.stringify(cities))
+ return localStorage.setItem('favoriteCities', JSON.stringify(Array.from(cities)))
 },
 getFavoriteCities(){
-  return JSON.parse(localStorage.getItem('cityName'))
+  return JSON.parse(localStorage.getItem('favoriteCities'))
 },
 saveCurrentCity(currentCity) {
   return localStorage.setItem('currentCity', JSON.stringify(currentCity))
 },
 getCurrentCity() {
   return JSON.parse(localStorage.getItem('currentCity'))
+},
 }
-}
+export const setCities = new Set()

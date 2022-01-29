@@ -8,7 +8,7 @@ export const UI = {
   HEART: document.querySelector('.now__btn_heart'),
   LOCATIONS_LIST: document.querySelector('.cities__list'),
   NOW_CITY: document.querySelector('.now__city'),
-  ADDED_CITIES: document.querySelector('.cities__list')
+  ADDED_CITIES: document.querySelector('.added-city')
 }
 export const WEATHER = {
   TEMPERATURE: document.querySelector('.now__temperature'),

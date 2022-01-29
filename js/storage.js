@@ -10,6 +10,5 @@ saveCurrentCity(currentCity) {
 },
 getCurrentCity() {
   return JSON.parse(localStorage.getItem('currentCity'))
-},
 }
-export const setCities = new Set()
+}

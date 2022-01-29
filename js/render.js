@@ -1,5 +1,6 @@
 import { UI, WEATHER } from './view.js'
 import { dateConverter, timeConverter } from './converters.js'
+import { storage } from './storage.js'
 export function render(data, URL_ICON) {
   UI.CITY_NAME.forEach((item) => { item.textContent = data.name })
   WEATHER.TEMPERATURE.textContent =  `${Math.round(data.main.temp)}°`
@@ -37,4 +38,43 @@ export function renderForecast(data, URL_ICON) {
   </div>`
     WEATHER.FORECAST.LIST.insertAdjacentHTML('beforeend', forecastItem)
   }
+}
+export function showSetCities() {
+  const favoriteCities = storage.getFavoriteCities()
+  if (favoriteCities) {
+    UI.LOCATIONS_LIST.innerHTML = ''
+    favoriteCities.forEach((item) => {
+      const cityBlock = `<div class="cities__item"><p class="added-city">${item}</p><button class="cities__delete-btn" type="button"></button></div>`
+      UI.LOCATIONS_LIST.insertAdjacentHTML('afterbegin', cityBlock)
+      const ADDED_CITIES = document.querySelectorAll('.added-city')
+      const DELETE_BTNS = document.querySelectorAll('.cities__delete-btn')
+      ADDED_CITIES.forEach((city) => city.addEventListener('click', tapToCity))
+      DELETE_BTNS.forEach((btn) => btn.addEventListener('click', deleteCity))
+    })
+  }
+}
+export function showCurrentCity() {
+  const currentCity = storage.getCurrentCity()
+  if (currentCity) {
+    UI.SEARCH_INPUT.value = currentCity
+    UI.SEARCH_BTN.click()
+  } else {
+    UI.SEARCH_INPUT.value = 'Moscow'
+    UI.SEARCH_BTN.click()
+  }
+}
+
+function tapToCity() {
+  UI.SEARCH_INPUT.value = this.textContent
+  UI.SEARCH_BTN.click()
+}
+
+function deleteCity() {
+  const cityName = this.previousElementSibling.textContent
+  const favoriteCities = new Set(Array.from(storage.getFavoriteCities()))
+  favoriteCities.delete(cityName)
+  storage.saveFavoriteCities(favoriteCities)
+  this.parentElement.remove()
+  if (cityName === UI.NOW_CITY.textContent)
+    UI.HEART.classList.remove('now__btn_active')
 }

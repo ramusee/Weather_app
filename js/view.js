@@ -8,8 +8,8 @@ export const UI = {
   HEART: document.querySelector('.now__btn_heart'),
   LOCATIONS_LIST: document.querySelector('.cities__list'),
   NOW_CITY: document.querySelector('.now__city'),
-  ADDED_CITIES: document.querySelector('.added-city')
-}
+  ADDED_CITIES: document.querySelector('.added-city'),
+};
 export const WEATHER = {
   TEMPERATURE: document.querySelector('.now__temperature'),
   ICON: document.querySelector('.now__img'),
@@ -22,6 +22,6 @@ export const WEATHER = {
   },
   FORECAST: {
     LIST: document.querySelector('.forecast__weather-timetable'),
-    ITEM: document.querySelectorAll('.forecast__weather-item')
+    ITEM: document.querySelectorAll('.forecast__weather-item'),
   },
-}
+};
